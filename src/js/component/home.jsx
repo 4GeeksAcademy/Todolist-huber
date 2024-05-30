@@ -9,7 +9,7 @@ const Home = () => {
 	const [tasks, setTasks] = useState([]); 
 	return (
 		<React.Fragment>
-				<h1>My Todos</h1>
+				<h1>Todos</h1>
 			<div className="container">
 					<div className="list">
 						<ul>
@@ -18,7 +18,7 @@ const Home = () => {
 								type="text" 
 								placeholder="Write your task here"
 								onChange={(event) => {
-									setInputValue(event.target.value)
+									setInputValue(event.target.value) 
 								}}
 								value={inputValue} 
 								onKeyDown={(event) => { 
@@ -33,6 +33,10 @@ const Home = () => {
 								}}
 								/>
 							</li>
+							<li style={{ display: tasks.length > 0 ? 'none' : 'block' }}>
+								<strong>No hay tareas, agrega una nueva</strong>
+							</li>
+		
 							{tasks.map((task, index) => (
 							<li key={index} className="containerLi">
 								{task} 
@@ -50,7 +54,7 @@ const Home = () => {
 						</ul>
 					</div>
 					<p>
-					{tasks.length + " Item left"}
+					{tasks.length + " item left"}
 					</p>			
 			</div>
 			<div className="stick"></div>
